@@ -1,0 +1,22 @@
+function alreadyAdded() {
+    return function (source, filter) {
+        var filtered = [];
+
+        for (var i=0; !!source && i<source.length; i++) {
+            var pushIt = true;
+            for (var j=0; !!filter && j<filter.length; j++) {
+                if(source[i].taskType.value == filter[j].taskType.value){
+                    pushIt = false;
+                    break;
+                }
+            }
+
+            if(pushIt){
+                filtered.push(source[i]);
+            }
+        }
+
+        return filtered;
+    };
+}
+
